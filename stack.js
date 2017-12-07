@@ -39,9 +39,43 @@ let Stack1 = (function(){
     constructor () {
       items.set(this, [])
     }
-  }
+    push(element) { //添加元素
+      let s = items.get(this)
+      s.push(element)
+    }
+    pop () {  //移除元素
+      let s = items.get(this)
+      return s.pop()
+    }
+    peek () {  //返回栈顶元素
+      let s = items.get(this)
+      return s[s.length-1]
+    }
+    isEmpty () { //检查是否为空
+      let s = items.get(this)
+      return s.length === 0
+    }
+    clear () { //清空栈
+      let s = items.get(this)
+      s = []
+    }
+    print () {
+      let s = items.get(this)
+      console.log(s.toString())
+    }
+  } 
   return Stack
 })()
+let stack2 = new Stack1()
+stack2.push(5)
+stack2.push(8)
+console.log(stack2)
+console.log(stack2.isEmpty())
+stack2.push(15)
+stack2.print()
+stack2.pop()
+stack2.pop()
+stack2.print()
 
 console.log("进制转换：")
 //十进制转二进制
