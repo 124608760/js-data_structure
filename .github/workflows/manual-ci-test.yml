@@ -1,0 +1,22 @@
+# DesireCore 手动测试第 15–16 节专用，可随时删除
+name: manual-ci-test
+on:
+  pull_request:
+jobs:
+  pass:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "通过"
+  skipped:
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "不会执行"
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node sum.test.js
