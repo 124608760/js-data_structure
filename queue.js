@@ -127,6 +127,3 @@ function hotPotato (nameList, num) {
   return queue.dequeue()
 }
 
-let names = ['傻吊', '弱智', '畜生', '废物', '碧池']
-let winner = hotPotato(names, 8)
-console.log(winner + "赢了")
